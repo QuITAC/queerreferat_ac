@@ -1,0 +1,12 @@
+[submodule "collabora_docker"]
+	path = collabora_docker
+	url = git@github.com:QuITAC/collabora_docker.git
+	branch = main
+[submodule "nextcloud_docker"]
+	path = nextcloud_docker
+	url = git@github.com:QuITAC/nextcloud_docker.git
+	branch = main
+[submodule "proxy_docker"]
+	path = proxy_docker
+	url = git@github.com:QuITAC/proxy_docker.git
+	branch = main
