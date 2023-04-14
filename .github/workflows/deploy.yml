@@ -22,4 +22,4 @@ jobs:
     - name: Adding Known Hosts
       run: ssh-keyscan -H queerreferat.ac >> ~/.ssh/known_hosts
     - name: Deploy with rsync
-      run: rsync -avz --delete ./ quitac@queerreferat.ac:/home/quitac/queerreferat_ac
+      run: rsync -avz ./ quitac@queerreferat.ac:/home/quitac/queerreferat_ac
