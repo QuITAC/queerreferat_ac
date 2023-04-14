@@ -9,6 +9,8 @@ jobs:
     name: Clone
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Install SSH Key
       uses: shimataro/ssh-key-action@v2
       with:
@@ -17,4 +19,4 @@ jobs:
     - name: Adding Known Hosts
       run: ssh-keyscan -H queerreferat.ac >> ~/.ssh/known_hosts
     - name: Deploy with rsync
-      run: rsync -avz ./ quitac@queerreferat.ac:/home/quitac/queerreferat.ac
+      run: rsync -avz --delete ./ quitac@queerreferat.ac:/home/quitac/queerreferat.ac
