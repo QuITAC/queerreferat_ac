@@ -8,11 +8,15 @@ on:
 jobs:
   # This workflow contains a single job called "update"
   update:
+    name: Update
     runs-on: ubuntu-latest
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Pull & update submodules recursively
         run: |
