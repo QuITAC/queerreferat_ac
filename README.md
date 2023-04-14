@@ -8,14 +8,9 @@ Clone the repository to your computer. Since subdirectories like `proxy_docker` 
 git submodule update --init --recursive
 ```
 
-To update the submodules to represent their current content on main, run
+When pulling make sure to add the `--recurse-submodules` to the `git pull` command.
 
-```
-git submodule update --remote
-```
-
-Note that you have to repeat this each time before pushing or pulling.
-On the other hand, you can cd into these subdirectories and work within them like you would on a single repository. Just make sure you always update the submodule beforehand and do not make changes inside `.gitmodules`.
+You can cd into these subdirectories and work within them like you would on a single repository. Just make sure you always update the submodule beforehand and do not make changes inside `.gitmodules`.
 
 ## How to add a web service
 
