@@ -1,0 +1,20 @@
+name: Deploy repository content
+
+on:
+  push:
+    branches: [ main ]
+    
+jobs:
+  clone:
+    name: Clone
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install SSH Key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: {%- raw -%} ${{ secrets.SSH_PRIVATE_KEY }}
+        known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+    - name: Adding Known Hosts
+      run: ssh-keyscan -H queerreferat.ac{% endraw%} >> ~/.ssh/known_hosts
+    - name: Deploy with rsync
+      run: rsync -avz ./ quitac@queerreferat.ac:/home/quitac/queerreferat.ac
