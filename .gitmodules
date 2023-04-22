@@ -10,7 +10,6 @@
 	path = proxy_docker
 	url = git@github.com:QuITAC/proxy_docker.git
 	branch = main
-[submodule "authentik-docker"]
-	path = authentik-docker
-	url = git@github.com/QuITAC/authentik-docker.git
-	branch=main
+[submodule "authentik_docker"]
+	path = authentik_docker
+	url = git@github.com:QuITAC/authentik_docker.git
