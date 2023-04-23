@@ -13,3 +13,6 @@
 [submodule "authentik_docker"]
 	path = authentik_docker
 	url = git@github.com:QuITAC/authentik_docker.git
+[submodule "wordpress_docker"]
+	path = wordpress_docker
+	url = git@github.com:QuITAC/wordpress_docker.git

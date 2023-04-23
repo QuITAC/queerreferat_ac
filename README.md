@@ -21,3 +21,10 @@ You can cd into these subdirectories and work within them like you would on a si
 git submodule add <URL(http_or_ssh)_OF_THE_NEW_REPOSITORY>
 
 ```
+
+## Tipps
+the server user has an alias for `docker compose` called `dc`.
+
+
+## Todos:
+* before going into production we should check [this list](https://www.smarthomebeginner.com/traefik-docker-security-best-practices/) and check if we have implemented these. at the very least we should argue why skipping a step.
