@@ -22,7 +22,7 @@ flowchart TB
     end
 
     subgraph collabora
-        cb(Collabora Server) --- cbworker(Collabora Worker)
+        cb(Collabora)
     end
 
     auth -- authenticates admins --- wp
