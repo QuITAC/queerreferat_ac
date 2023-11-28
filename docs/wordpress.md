@@ -28,7 +28,7 @@ To install the necessary plugin:
 2. In the wp admin panel go to __plugins >> Neues Plugin hinzufügen__. Click on __Plugin hochladen__ and then on __Choose File__. Select the zipped folder you downloaded in the previous step.
 3. Then click on __plugin aktivieren__.
 
-Next got to authentik and create an oidc provider named wordpress. Ideally, this should have been configured beforehand. The important thing is, that you need the client ID and the client secret in the next steps.
+Next got to authentik and create an oidc provider named wordpress. Ideally, this should have been configured beforehand. The important thing is, that you need the client ID and the client secret in the next steps. The redictect URI can be taken from __Einstellungen >> OpenID Connect Plugin__ in Worpdress.
 
 1. Navigate in wordpress admin interface to __Einstellungen >> OpenID Connect Plugin__.
 2. Enter the following info
