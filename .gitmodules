@@ -1,17 +1,15 @@
-[submodule "nextcloud_docker"]
-	path = nextcloud_docker
-	url = git@github.com:QuITAC/nextcloud_docker.git
-	branch = main
-[submodule "proxy_docker"]
-	path = proxy_docker
-	url = git@github.com:QuITAC/proxy_docker.git
-	branch = main
-[submodule "authentik_docker"]
-	path = authentik_docker
-	url = git@github.com:QuITAC/authentik_docker.git
-[submodule "wordpress_docker"]
-	path = wordpress_docker
-	url = git@github.com:QuITAC/wordpress_docker.git
 [submodule "portainer"]
 	path = portainer
 	url = git@github.com:QuITAC/portainer.git
+[submodule "nextcloud"]
+	path = nextcloud
+	url = git@github.com:QuITAC/nextcloud.git
+[submodule "authentik"]
+	path = authentik
+	url = git@github.com:QuITAC/authentik.git
+[submodule "wordpress"]
+	path = wordpress
+	url = git@github.com:QuITAC/wordpress.git
+[submodule "proxy"]
+	path = proxy
+	url = git@github.com:QuITAC/proxy.git
