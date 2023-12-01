@@ -12,3 +12,6 @@
 [submodule "wordpress_docker"]
 	path = wordpress_docker
 	url = git@github.com:QuITAC/wordpress_docker.git
+[submodule "portainer"]
+	path = portainer
+	url = git@github.com:QuITAC/portainer.git
