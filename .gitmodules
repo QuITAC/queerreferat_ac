@@ -1,15 +1,20 @@
 [submodule "portainer"]
 	path = portainer
 	url = git@github.com:QuITAC/portainer.git
+	branch = main
 [submodule "nextcloud"]
 	path = nextcloud
 	url = git@github.com:QuITAC/nextcloud.git
+	branch = main
 [submodule "authentik"]
 	path = authentik
 	url = git@github.com:QuITAC/authentik.git
+	branch = main
 [submodule "wordpress"]
 	path = wordpress
 	url = git@github.com:QuITAC/wordpress.git
+	branch = main
 [submodule "proxy"]
 	path = proxy
 	url = git@github.com:QuITAC/proxy.git
+	branch = main
