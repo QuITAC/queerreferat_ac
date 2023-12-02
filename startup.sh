@@ -13,3 +13,5 @@ do
     docker compose up -d
     cd ..
 done
+
+docker exec -u www-data nextcloud-app php /var/www/html/cron.php
