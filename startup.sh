@@ -10,8 +10,6 @@ cd ..
 for SERVICE in $(git submodule | cut -d " " -f 3 | grep -v proxy)
 do
     cd $SERVICE
-    docker compose up -d
+    sh ./startup.sh
     cd ..
 done
-
-docker exec -u www-data nextcloud-app php /var/www/html/cron.php
