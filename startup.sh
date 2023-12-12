@@ -10,6 +10,7 @@ cd ..
 for SERVICE in $(git submodule | cut -d " " -f 3 | grep -v proxy)
 do
     cd $SERVICE
-    sh ./startup.sh
+    chmod +x ./startup.sh
+    ./startup.sh
     cd ..
 done
