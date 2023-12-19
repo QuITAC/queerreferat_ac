@@ -21,3 +21,6 @@
 [submodule "synapse"]
 	path = synapse
 	url = git@github.com:QuITAC/synapse.git
+[submodule "monitoring"]
+	path = monitoring
+	url = git@github.com:QuITAC/monitoring.git
