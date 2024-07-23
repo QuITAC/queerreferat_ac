@@ -1,0 +1,57 @@
+# To initialize the tracker:
+# - `docker compose run roundup-app` and follow the intractive prompt
+# - edit the config file:
+#   - `docker compose run roundup-app shell`
+#   - then run `vi tracker/config.ini`
+# - `docker compose run roundup-app` again to set the admin password
+
+networks:
+  proxy:
+    external: true
+    name: proxy
+  internal:
+
+volumes:
+  db:
+  tracker:
+
+services:
+  mariadb:
+    image: lscr.io/linuxserver/mariadb
+    container_name: mariadb
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
+      - MYSQL_ROOT_PASSWORD=myPassword
+      - MYSQL_DATABASE=roundup
+      - MYSQL_USER=roundup_user
+      - MYSQL_PASSWORD=roundup_pass
+    volumes:
+      - db:/config
+    networks:
+      - internal
+
+  roundup-app:
+    image: rounduptracker/roundup
+    container_name: roundup-app
+    command: "tickets=tracker"
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Berlin
+    ports:
+      - 9017:8080
+    links:
+      - mariadb
+    depends_on:
+      - mariadb
+    volumes:
+      - tracker:/usr/src/app/tracker
+    networks:
+      - proxy
+      - internal
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.roundup.rule=Host(`tickets.queerreferat.ac`)"
+      - "treafik.http.services.roundup.loadbalancer.server.port=9017"
