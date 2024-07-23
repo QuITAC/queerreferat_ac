@@ -1,9 +1,9 @@
 # To initialize the tracker:
-# - `docker compose run roundup-app` and follow the intractive prompt
+# - `docker compose run roundup` and follow the intractive prompt
 # - edit the config file:
-#   - `docker compose run roundup-app shell`
+#   - `docker compose run roundup shell`
 #   - then run `vi tracker/config.ini`
-# - `docker compose run roundup-app` again to set the admin password
+# - `docker compose run roundup` again to set the admin password
 
 networks:
   proxy:
@@ -33,25 +33,26 @@ services:
     networks:
       - internal
 
-  roundup-app:
-    image: rounduptracker/roundup
-    container_name: roundup-app
-    command: "tickets=tracker"
+  roundup:
+    image: mod-roundup
+    command: "-V HTTP/1.0 tickets=tracker"
     restart: unless-stopped
     environment:
       - TZ=Europe/Berlin
-    ports:
-      - 9017:8080
+    expose:
+      - 8080
     links:
       - mariadb
     depends_on:
       - mariadb
     volumes:
       - tracker:/usr/src/app/tracker
+      # - ./oic_login.py:/usr/src/app/tracker/extensions/oic_login.py
     networks:
       - proxy
       - internal
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.roundup.rule=Host(`tickets.queerreferat.ac`)"
-      - "treafik.http.services.roundup.loadbalancer.server.port=9017"
+      - "traefik.http.routers.roundup.middlewares=auth-roundup"
+      - "traefik.http.middlewares.auth-roundup.forwardauth.address=http://authentik-server-1:9000/outpost.goauthentik.io/auth/traefik"
